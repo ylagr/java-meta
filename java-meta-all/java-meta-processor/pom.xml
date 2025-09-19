@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.ylagr</groupId>
+        <artifactId>java-meta-all</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <artifactId>java-meta-processor</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- pom.xml for the annotation processor project -->
+    <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1.8</version>
+                    <scope>system</scope>
+                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                    <optional>true</optional>
+                </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <compilerArgs>
+
+                    </compilerArgs>
+<!--                    本项目不需要编译注解处理器 &ndash;&gt;-->
+                    <proc>none</proc>
+                    <!-- 主要编译目标为 Java 8 -->
+<!--                    <source>8</source>-->
+<!--                    <target>8</target>-->
+
+<!--                    <release>6</release>-->
+<!--                    <jdkToolchain>-->
+<!--                        <version>17</version>-->
+<!--                    </jdkToolchain>-->
+
+                </configuration>
+                <executions>
+<!--                    <execution>-->
+<!--                        <id>default-compile</id>-->
+<!--                        <configuration>-->
+<!--                            <release>9</release>-->
+<!--&lt;!&ndash;                            <includes>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <include>module-info.java</include>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </includes>&ndash;&gt;-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+                    <execution>
+                        <id>base-compile</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <excludes>
+                                <exclude>module-info.java</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.ylagr</groupId>
+    <artifactId>java-meta-processor-later</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.ylagr</groupId>
+            <artifactId>java-meta-processor</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+
+                <configuration>
+                    <proc>none</proc>
+<!--                    <annotationProcessors>-->
+<!--                        <annotationProcessor>io.github.ylagr.javameta.MetaGenerateProcessor</annotationProcessor>-->
+<!--                    </annotationProcessors>-->
+<!--                    <fork>true</fork>-->
+                    <compilerArgs>
+
+                        <!-- 解决访问 javac 内部 API 的问题 -->
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.api=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.file=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.main=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.model=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.parser=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.processing=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.tree=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.util=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.code=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.comp=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-opens</arg><arg>jdk.compiler/com.sun.tools.javac.jvm=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                    <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.api=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.file=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.main=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.model=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.parser=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.processing=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.tree=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.util=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.code=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.comp=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                        <arg>--add-exports</arg><arg>jdk.compiler/com.sun.tools.javac.jvm=UNNAMED,ALL-UNNAMED,io.github.ylagr.javameta,java.meta.processor</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
