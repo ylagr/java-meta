@@ -32,7 +32,7 @@
                 <configuration>
                     <proc>none</proc>
 <!--                    <annotationProcessors>-->
-<!--                        <annotationProcessor>io.github.ylagr.javameta.MetaGenerateProcessor</annotationProcessor>-->
+<!--                        <annotationProcessor>io.github.ylagr.javameta.processor.MetaGenerateProcessor</annotationProcessor>-->
 <!--                    </annotationProcessors>-->
 <!--                    <fork>true</fork>-->
                     <compilerArgs>

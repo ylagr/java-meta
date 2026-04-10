@@ -18,8 +18,8 @@ class Student{
     public Teacher teacher;
     ClassReality classic;
     School school;
-    List<String> nicknames;
-    List<String>[] nickname2;
+//    List<String> nicknames;
+//    List<String>[] nickname2;
 //    public static class meta{
 //        public static class name implements io.github.ylagr.javameta.Meta.Inner{
 //
