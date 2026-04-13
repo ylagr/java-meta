@@ -9,6 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <packaging>jar</packaging>
+    <name>java-meta-apt-processor</name>
     <artifactId>java-meta-apt-processor</artifactId>
 
     <properties>

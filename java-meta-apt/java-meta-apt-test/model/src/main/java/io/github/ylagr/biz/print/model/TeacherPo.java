@@ -11,7 +11,7 @@ import java.util.List;
  * @date 2026/4/10 09:32
  */
 @Data
-@Meta(aliasName = "Teacher$Meta")
+@Meta( )
 public class TeacherPo {
 
     private String name;
